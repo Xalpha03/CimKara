@@ -1,0 +1,98 @@
+{% extends 'home.html' %}
+
+{% block content %}
+<div class="container mt-3">
+    <div class="col col-md-12">
+        <div class="card">
+            <div class="card-header bg-primary btn">
+                <table class="table align-middle mb-0 bg-white">
+                    <thead class="bg-primary">
+                        <div class="fs-2 text-center text-light">Tableau recaptulatif</div>
+                    </thead>
+                </table>
+            </div>
+            <div class="card-body">
+                <table class="table table-bordered align-middle mb-0 bg-white">
+                    <thead class="bg-primary text-center">
+                        <tr >
+                            <th class="fs-4 text-light">Date</th>
+                            <th class="fs-4 text-light">Livraison</th>
+                            <th class="fs-4 text-light">Casse</th>
+                            <th class="fs-4 text-light">Ensache</th>
+                            <th class="fs-4 text-light">Taux_Casse</th>
+                            <th class="fs-4 text-light">Edite</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-center">
+                        
+                        {% for post in posts_article %}
+                        <tr>
+                            <td>
+                                <p class="text-dark mb-0 fw-bold fs-6">{{ post.created|date:"d/n/o" }}</p>
+                            </td>
+                            <td>
+                                <p class="text-dark mb-0 fw-bold fs-6">{{ post.livraison }}</p>
+                            </td>
+                            <td>
+                                <p class="text-dark mb-0 fw-bold fs-6">{{ post.casse }}</p>
+                            </td>
+                            <td>
+                                <p class="text-dark mb-0 fw-bold fs-6">{{ post.ensache }}</p>
+                            </td>
+                            <td>
+                                <p class="text-dark mb-0 fw-bold fs-6">{{ post.tx_casse|floatformat:2 }}</p>
+                            </td>
+                            <td>
+                                <a href="/edite/?id={{ post.id }}">Edité</a>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                    <tfoot class="bg-warning text-center">
+                        <td>
+                            <p class="text-light mb-0 fw-bold fs-4">Total</p>
+                        </td>
+                        <td>
+                            <p class="text-light mb-0 fw-bold fs-4">{{ livr_total.liv }}</p>
+                        </td>
+                        <td>
+                            <p class="text-light mb-0 fw-bold fs-4">{{ casse_total.cas }}</p>
+                        </td>
+                        <td>
+                            <p class="text-light mb-0 fw-bold fs-4">{{ ensa_total.ens }}</p>
+                        </td>
+                        <td>
+                            <p class="text-light mb-0 fw-bold fs-4">{{ tx_casse_total.tx_cas|floatformat:"2" }} %</p>
+                        </td>
+                        <td>
+                            <p class="text-light mb-0 fw-bold fs-4"></p>
+                        </td>
+                    </tfoot>
+                </table>
+            </div>
+            <!-- <div class="card-footer bg-warning btn">
+                <table class="table table-bordered align-middle mb-0 bg-white">
+                    <tfoot class="bg-warning text-center">
+                        <td>
+                            <p class="text-light mb-0 fw-bold fs-4">Total</p>
+                        </td>
+                        <td>
+                            <p class="text-light mb-0 fw-bold fs-4">{{ livr_total.liv }}</p>
+                        </td>
+                        <td>
+                            <p class="text-light mb-0 fw-bold fs-4">{{ casse_total.cas }}</p>
+                        </td>
+                        <td>
+                            <p class="text-light mb-0 fw-bold fs-4">{{ ensa_total.ens }}</p>
+                        </td>
+                        <td>
+                            <p class="text-light mb-0 fw-bold fs-4"></p>
+                        </td>
+                    </tfoot>
+                </table>
+            </div> -->
+        </div>
+    </div>
+</div>
+
+{% endblock content %}

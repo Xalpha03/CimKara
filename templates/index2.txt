@@ -1,0 +1,134 @@
+{% extends 'home.html' %}
+{% block content %}
+<div class="container">
+    <div class="row row-cols-2 mt-3">
+        <div class="col">
+            <div class="card">
+                <div class="card-header text-center fs-3 bg-success text-light btn"><i
+                        class="fas fa-rectangle-list"></i>
+                    Formulaire
+                </div>
+                <div class="card-body">
+                    {% if user.is_authenticated %}
+                    <form action="" method="post"> {% csrf_token %}
+                        {{ form.as_p }}
+                        <div class="d-grid gap">
+                            <button type="submit" class="btn btn-primary">SUBMIT</button>
+                        </div>
+                    </form>
+                    {% else %}
+                    <div class="text-center fs-2 text-dark">Veillez-vous connecter</div>
+                    <div class="text-center fs-6 mt-3"><i class="fas fa-link"></i><a href="{% url 'users:login' %}">
+                            Cliqué ici pour vous connecter</a></div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card">
+                {% if posts_date %}
+                <div class="col">
+                    <div class="card">
+                        <div class="card-header fs-3 bg-primary text-center text-light btn"><i class="fas fa-book"></i>
+                            Details
+                        </div>
+                        <div class="card-body">
+                            <table class="table table-bordered">
+                                <thead>
+                                    <td colspan="2">
+                                        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                                            <div class="container-fluid">
+                                                <form class="col flex-row" action="" method="get" novalidate>{% csrf_token %}
+                                                    <div class="mb-1">
+                                                        <input class="form-control" type="date" name="get_date">
+                                                    </div>
+                                                    <!-- <div class="mb-1">
+                                                        <input class="form-control" type="text" name="get_name"
+                                                            placeholder="Entré un nom pour le filtrage">
+                                                    </div> -->
+                                                    <div class="d-grid gap">
+                                                        <button type="submit" class="btn btn-primary">SUBMIT</button>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </nav>
+                                    </td>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <th scope="row" class="fs-3">Livraison:</th>
+                                        <td class="fs-4">{{ posts_livr.liv }} T</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" class="fs-3">Casse:</th>
+                                        <td class="fs-4">{{ posts_casse.cas }} casses</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" class="fs-3">Ensache:</th>
+                                        <td class="fs-4">{{ posts_ensache.ens }} sacs</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" class="fs-3">Taux_Casse:</th>
+                                        <td class="fs-4">{{ posts_tx_casse.tx_cas|floatformat:2 }} %</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                {% else %}
+                <div class="col">
+                    <div class="card">
+                        <div class="card-header fs-3 bg-primary text-center text-light btn"><i class="fas fa-book"></i>
+                            Details
+                        </div>
+                        <div class="card-body">
+                            <table class="table table-bordered">
+                                <thead>
+                                    <td colspan="2">
+                                        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                                            <div class="container-fluid">
+                                                <form class="col flex-row" action="" method="get" novalidate>{% csrf_token %}
+                                                    <div class="mb-1">
+                                                        <input class="form-control" type="date" name="get_date">
+                                                    </div>
+                                                    <!-- <div class="mb-1">
+                                                        <input class="form-control" type="text" name="get_name"
+                                                            placeholder="Entré un nom pour le filtrage">
+                                                    </div> -->
+                                                    <div class="d-grid gap">
+                                                        <button type="submit" class="btn btn-primary">SUBMIT</button>
+                                                    </div>
+                                                </form>
+                                            </div>
+                        </div>
+                        </nav>
+                        </td>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row" class="fs-3">Livraison:</th>
+                                <td class="fs-4">{{ livr_total.liv }} T</td>
+                            </tr>
+                            <tr>
+                                <th scope="row" class="fs-3">Casse:</th>
+                                <td class="fs-4">{{ casse_total.cas }} casses</td>
+                            </tr>
+                            <tr>
+                                <th scope="row" class="fs-3">Ensache:</th>
+                                <td class="fs-4">{{ ensa_total.ens }} sacs</td>
+                            </tr>
+                            <tr>
+                                <th scope="row" class="fs-3">Taux_Casse:</th>
+                                <td class="fs-4">{{ tx_casse_total.tx_cas|floatformat:2 }} %</td>
+                            </tr>
+                        </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock content %}

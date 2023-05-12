@@ -1,0 +1,41 @@
+{% extends 'home.html' %}
+
+{% block content %}
+<div class="container">
+    <div class="col-md-12 mt-3">
+        {% if messages %}
+        {% for message in messages %}
+        <div class="alert alert-danger text-center"><strong>{{message}}</strong></div>
+        {% endfor %}
+        {% endif %}
+        <form action="" method="post" novalidate> {% csrf_token %}
+            <div class="card">
+                <div class="card-header text-center fs-4 bg-secondary text-light"><i class="fas fa-network-wired"></i></i> Connexion</div>
+                <div class="card-body">
+                    <label for="">Username:</label>
+                    {% if form.name.errors %}
+                    {% for error in form.name.errors %}
+                    <div class="div-error-{{form.name.name}})"><small class="text-danger">{{error}}</small></div>
+                    {% endfor %}
+                    {% endif %}
+                    {{form.username}}
+                    <label for="">Password:</label>
+                    {% if form.password.errors %}
+                    {% for error in form.password.errors %}
+                    <div class="div-error-{{form.password.name}})"><small class="text-danger">{{error}}</small></div>
+                    {% endfor %}
+                    {% endif %}
+                    {{form.password}}
+
+                </div>
+                <div class="card-footer">
+                    <div class="d-grid gap">
+                        <button type="submit" class="btn btn-primary">SUBMIT</button>
+                        <div class="text-center fs-6 mt-3"><i class="fas fa-link"></i><a class="" href="{% url 'users:logup' %}"> Cliqué pour vous inscrire</a></div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock content %}
