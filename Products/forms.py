@@ -7,13 +7,12 @@ class DateInput(forms.DateInput):
 
 
 class ArticleForm(forms.ModelForm):
-    #category = forms.ChoiceField()
-    livraison = forms.IntegerField(widget=forms.TextInput(attrs={'class': 'form-control'}))
-    casse = forms.IntegerField(widget=forms.TextInput(attrs={'class': 'form-control'}))
-    #ensache = forms.IntegerField(widget=forms.TextInput(attrs={'class': 'form-control'}))
-    created = forms.DateField(widget=DateInput(attrs={'class': 'form-control'}))
-
-
     class Meta:
         model = Article
-        fields = ('name_user', 'livraison', 'casse', 'created')
+        fields = ['name_user', 'livraison', 'casse', 'created']
+        widgets = {
+            #'name_user': forms.Ch(attrs={'class': 'form-control'}),
+            'livraison': forms.TextInput(attrs={'class': 'form-control'}),
+            'casse': forms.TextInput(attrs={'class': 'form-control'}),
+            'created': forms.DateInput(attrs={'class': 'form-control'}),
+        }
