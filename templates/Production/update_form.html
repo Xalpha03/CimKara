@@ -1,0 +1,84 @@
+{% extends 'home.html' %}
+
+{% block title %}Update Form{% endblock title %}
+
+{% block content %}
+<div class="container">
+
+    <div class="card text-center bg-dark">
+        <div class="card-header">
+            <!-- {% include 'Production/menu.html' %} -->
+            <h5 class=" h2 text-uppercase text-light">formulaire de modification</h5>
+        </div>
+
+        <div class="container-fluid">
+            <section class="pb-5">
+
+                <div class="row">
+                    <div class="col-lg-4 col-sm-12 clo-md-4 mt-4"></div>
+                    <div class="col-lg-4 col-sm-12 clo-md-4 mt-4">
+                        <div class="card" style="background-color: #000000;">
+                            <div class="h4 card-header text-capitalize">
+                                <div class="row">
+                                    <div class="col-12 mt-3 mb-1">
+                                        <h5 class=" h4 text-uppercase text-light">updated form</h5>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="card-body mt-2">
+                                <form method="POST" enctype="multipart/form-data" action="">{% csrf_token %}
+                                    <!-- 2 column grid layout with text inputs for the first and last names -->
+                                    <div class="row mb-4">
+                                        <div class="col">
+                                            <div data-mdb-input-init class="form-outline">
+                                                <input readonly type="text" id="form3Example1" class="form-control text-dark"
+                                                    name="username" value="{{ obj.username }}" required />
+                                                <label class="form-label" for="form3Example1">Username</label>
+                                            </div>
+                                        </div>
+                                        <div class="col">
+                                            <div data-mdb-input-init class="form-outline">
+                                                <input type="number" id="form3Example2" class="form-control text-light"
+                                                    name="livraison" value="{{ obj.livraison }}" required />
+                                                <label class="form-label text-light"
+                                                    for="form3Example2">Livraison</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row mb-4">
+                                        <div class="col">
+                                            <div data-mdb-input-init class="form-outline">
+                                                <input type="number" id="form3Example1" class="form-control text-light" name="casse"
+                                                    value="{{ obj.casse }}" required />
+                                                <label class="form-label text-light" for="form3Example1">Casse</label>
+                                            </div>
+                                        </div>
+                                        <div class="col">
+                                            <div data-mdb-input-init class="form-outline">
+                                                <input type="text" id="form3Example2" class="form-control text-light" name="vrac"
+                                                    value="{{ obj.vrac }}" required />
+                                                <label class="form-label text-light" for="form3Example2">Vrac</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Password input -->
+                                    <div data-mdb-input-init class="form-outline mb-4">
+                                        <input type="date" id="form3Example4" class="form-control text-light" name="date" value="{{ obj.created|date:'o-0n-d' }}" required/>
+                                        <label class="form-label text-light" for="form3Example4">Date</label>
+                                    </div>
+                                    <!-- Submit button -->
+                                    <button data-mdb-ripple-init type="submit"
+                                        class="btn btn-primary btn-block mb-4">Submit</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-12 clo-md-4 mt-4"></div>
+                </div>
+
+            </section>
+        </div>
+    </div>
+</div>
+{% endblock content %}

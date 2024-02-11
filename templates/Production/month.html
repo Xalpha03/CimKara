@@ -1,0 +1,144 @@
+{% extends 'home.html' %}
+
+{% block title %}Month{% endblock title %}
+
+
+{% block content %}
+<div class="container">
+
+    <!-- <p class="text-light text-end mt-3 fs-3 fst-italic fw-bold"><i class="far fa-calendar-days"></i>To day is :{% now 'd-M-Y' %}</p> -->
+
+    <div class="card text-center bg-dark">
+        <div class="card-header">
+            <!-- {% include 'Production/menu.html' %} -->
+            <div class="col-12 mt-3 mb-1">
+                <h5 class=" h2 text-uppercase text-light">monthly bagging statistics</h5>
+                <p class="text-light">Total monthly statistics of all post</p>
+            </div>
+        </div>
+
+
+        <div class="container-fluid">
+            <section>
+                <div class="row mt-3">
+                    <div class="col-xl-6 col-md-12 mb-4 ">
+                        <div class="card" style="background-color: #000000">
+                            <div class="card-body text-light">
+                                <div class="d-flex justify-content-between p-md-1">
+                                    <div class="d-flex flex-row">
+                                        <div class="align-self-center">
+                                            <i class="fab fa-battle-net text-info fa-3x me-4"></i>
+                                        </div>
+                                        <div>
+                                            <h4>Total Delivery</h4>
+                                            <p class="mb-0">Monthly delivery</p>
+                                        </div>
+                                    </div>
+                                    <div class="align-self-center">
+                                        {% if liv_total.liv %}<h2 class="h1 mb-0">{{ liv_total.liv }}</h2>{% else %}
+                                        <h2 class="h1 mb-0">0</h2>{% endif %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-6 col-md-12 mb-4">
+                        <div class="card" style="background-color: #000000">
+                            <div class="card-body text-light">
+                                <div class="d-flex justify-content-between p-md-1">
+                                    <div class="d-flex flex-row">
+                                        <div class="align-self-center">
+                                            <i class="fab fa-battle-net text-info fa-3x me-4"></i>
+                                        </div>
+                                        <div>
+                                            <h4>Total broken</h4>
+                                            <p class="mb-0">Monthly breakage</p>
+                                        </div>
+                                    </div>
+                                    <div class="align-self-center">
+                                        {% if cas_total.cas %}<h2 class="h1 mb-0">{{ cas_total.cas }}</h2>{% else %}
+                                        <h2 class="h1 mb-0">0.0</h2>{% endif %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xl-6 col-md-12 mb-4">
+                        <div class="card" style="background-color: #000000">
+                            <div class="card-body text-light">
+                                <div class="d-flex justify-content-between p-md-1">
+                                    <div class="d-flex flex-row">
+                                        <div class="align-self-center">
+                                            <i class="fab fa-battle-net text-info fa-3x me-4"></i>
+                                        </div>
+                                        <div>
+                                            <h4 class="">Total Bagged</h4>
+                                            <p class="mb-0">Monthly bagged</p>
+                                        </div>
+                                    </div>
+                                    <div class="align-self-center">
+                                        {% if ens_total.ens %}<h2 class="h1 mb-0">{{ ens_total.ens }}</h2>{% else %}
+                                        <h2 class="h1 mb-0">0</h2>{% endif %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-6 col-md-12 mb-4">
+                        <div class="card" style="background-color: #000000">
+                            <div class="card-body text-light">
+                                <div class="d-flex justify-content-between p-md-1">
+                                    <div class="d-flex flex-row">
+                                        <div class="align-self-center">
+                                            <i class="fab fa-battle-net text-info fa-3x me-4"></i>
+                                        </div>
+                                        <div>
+                                            <h4>Total Breakage Rate</h4>
+                                            <p class="mb-0">Monthly Breakage Rate</p>
+                                        </div>
+                                    </div>
+                                    <div class="align-self-center">
+                                        {% if tx_cas_total.tx_cas %}<h2 class="h1 mb-0">{{ tx_cas_total.tx_cas|floatformat:2 }}</h2>{% else%}
+                                        <h2 class="h1 mb-0">0.0</h2>{% endif %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xl-6 col-md-12 mb-4">
+                        <div class="card" style="background-color: #000000">
+                            <div class="card-body text-light">
+                                <div class="d-flex justify-content-between p-md-1">
+                                    <div class="d-flex flex-row">
+                                        <div class="align-self-center">
+                                            <i class="fab fa-battle-net text-info fa-3x me-4"></i>
+                                        </div>
+                                        <div>
+                                            <h4>Total Bulk Delivery</h4>
+                                            <p class="mb-0">Monthly Bulk Delivery</p>
+                                        </div>
+                                    </div>
+                                    <div class="align-self-center">
+                                        {% if vra_total.vra %}<h2 class="h1 mb-0">{{ vra_total.vra }}</h2>{% else %}
+                                        <h2 class="h1 mb-0">0.0</h2>{% endif %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+        </div>
+
+        </section>
+    </div>
+
+</div>
+
+
+
+{% endblock %}

@@ -1,0 +1,1 @@
+# post = Commantaire.objects.all().annotate(duration=ExpressionWrapper(F('end_time') - F('start_time'), output_field=DurationField()))

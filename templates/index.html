@@ -1,0 +1,83 @@
+{% extends 'home.html' %}
+
+
+{% block title %}Index{% endblock title %}
+
+{% block content %}
+<div class="container">
+    
+    <div class="table table-responsive" style="font-family: 'Playfair Display', serif;
+    ">
+        <table class="table table-striped table-over">
+            <thead>
+
+                <tr class="h5 text-center">
+                    <th class="text-uppercase">date</th>
+                    <th class="text-uppercase">livraison</th>
+                    <th class="text-uppercase">casse</th>
+                    <th class="text-uppercase">ensache</th>
+                    <th class="text-uppercase">taux de casse</th>
+                    <th class="text-uppercase">vrac</th>
+                </tr>
+
+            </thead>
+            <tbody class="table-group-divider table-divider-color">
+
+                {% for post in posts %}
+                <tr class="text-center h5">
+                    <th>{{ post.created|date:'d/n/o' }}</th>
+                    <th>{{ post.livraison }}</th>
+                    <th>{{ post.casse }}</th>
+                    <th>{{ post.ensache }}</th>
+                    <th>{{ post.tx_casse|floatformat:2 }}</th>
+                    <th>{{ post.vrac }}</th>
+                </tr>
+                {% endfor %}
+
+            </tbody>
+            <tfoot>
+                <tr class="text-center h4 table-info">
+                    <th class="text-uppercase">total:</th>
+                    
+                    {% if liv_total.liv %}
+                        <th>{{ liv_total.liv }}</th>
+                    {% else %}
+                        <th>0</th>
+                    {% endif %}    
+                    
+                    {% if cas_total.cas %}
+                        <th>{{ cas_total.cas }}</th>
+                    {% else %}
+                        <th>0</th>
+                    {% endif %}
+                         
+                    {% if ens_total.ens %}
+                        <th>{{ ens_total.ens }}</th>
+                    {% else %}
+                        <th>0</th>
+                    {% endif %}
+                        
+                    
+                    {% if tx_cas_total.tx_cas %}
+                        <th>{{ tx_cas_total.tx_cas|floatformat:2 }}</th>
+                    {% else %}
+                        <th>0.00</th>
+                    {% endif %}
+                        
+                    
+                    {% if vra_total.vra %}
+                        <th>{{ vra_total.vra }}</th>
+                    {% else %}
+                        <th>0.0</th>
+                    {% endif %}
+                        
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+    <!-- <div class="d-flex justify-content-end border border-danger">
+        <a class="btn btn-primary" href="" target="_blank" rel="noopener noreferrer">arrêt</a>
+    </div> -->
+</div>
+
+{% endblock %}

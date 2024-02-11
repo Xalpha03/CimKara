@@ -1,0 +1,21 @@
+{% extends 'home.html' %}
+
+
+{% block content %}
+<div class="container text-center">
+    <h1 class="h4">bienvenus sur la page</h1>
+    {% if update %}
+    <div class="alert alert-success">
+        <p class="h5">Votre modification a été éffectuée avec succes cliqué <a href="/detail/?username={{ user.username }}">Ici</a>
+            pour y retourner</p>
+    </div>
+    {% endif %}
+    
+    {% if add %}    
+        <div class="alert alert-success">
+            <p class="h5">Votre ajout de données a été éffectuée avec succes cliqué <a href="/detail/?username={{ user.username }}">Ici</a>
+                pour y retourner</p>
+        </div> 
+    {% endif %}
+</div>
+{% endblock content %}

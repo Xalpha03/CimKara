@@ -1,0 +1,32 @@
+{% extends "home.html" %}
+
+{% block title %}Edité{% endblock title %}
+
+{% block content %}
+    <div class="container">
+        <div class="col-12">
+            <div class="card">
+              <div class="card">
+                <div
+                  class="card-header bg-info bg-gradient fs-3 text-center text-white text-uppercase fw-bold"><i class="fas fa-rectangle-list me-1"></i>formulaire
+                </div>
+                <div class="card-body">
+                  <blockquote class="blockquote mb-0">
+                    <div class="mb-sm-0">
+                      <form action="" method="post">
+                        {% csrf_token %} {{ form.as_p }}
+                        <div class="d-grid gap">
+                          <button type="submit" class="btn btn-primary">
+                            SUBMIT
+                          </button>
+                        </div>
+                      </form>
+                    </div>
+                  </blockquote>
+                </div>
+              </div>
+            </div>
+          </div>
+    </div>
+{% endblock content %}
+    

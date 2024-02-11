@@ -1,0 +1,16 @@
+<ul class="nav nav-tabs card-header-tabs">
+    <li class="nav-item">
+        <a class="nav-link text-light" href="{% url 'data:day_name' %}">Day</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link text-light" href="{% url 'data:yesterday_name' %}">Yesterday</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link text-light" href="{% url 'data:month_name' %}">Month</a>
+    </li>
+    {% if user.is_authenticated %}
+    <li class="nav-item">
+        <a class="nav-link text-light" href="{% url 'data:add_form_name' %}">Add Form</a>
+    </li>
+    {% endif %}
+</ul>

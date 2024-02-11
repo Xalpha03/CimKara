@@ -1,0 +1,22 @@
+{% extends 'home.html' %}
+
+
+{% block content %}
+<div class="container text-center">
+    <h1 class="h4">bienvenus sur la page d'inscription</h1>
+    
+    {% if logup %}
+    <div>
+        
+        {% if message %}
+            <div class="alert alert-success">
+                <p class="h4"><span class="text-decoration-underlin">{{ message }}</span> cliqué <a href="{% url 'users:logIn' %}">Ici</a> pour vous connecter</p>
+            </div>
+        {% endif %}
+            
+    </div>
+    {% endif %}
+        
+</div>
+{% endblock content %}
+    

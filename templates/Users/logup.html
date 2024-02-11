@@ -1,0 +1,106 @@
+{% extends 'home.html' %}
+
+
+
+{% block content %}
+
+
+{% if user.is_superuser %}
+
+
+<div class="container-fluid">
+    <section class="pb-5">
+
+        <div class="row">
+            <div class="col-lg-4 col-sm-12 clo-md-4 mt-4"></div>
+            <div class="col-lg-4 col-sm-12 clo-md-4 mt-4">
+                <div class="card" style="background-color: #000000;">
+                    <div class="h4 card-header text-capitalize">
+                        <div class="row">
+                            <div class="col-12 mt-3 mb-1">
+                                <h5 class=" h4 text-uppercase text-light">registration form</h5>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="card-body">
+                        {% if message %}
+                        <h5 class="h6 text-center alert alert-danger"><span class="fst-italic">{{ message }}</span></h5>
+
+                        {% endif %}
+                        <form method="POST" enctype="multipart/form-data">{% csrf_token %}
+                            <!-- 2 column grid layout with text inputs for the first and last names -->
+                            <div class="row mb-4">
+                                <div class="col">
+                                    <div data-mdb-input-init class="form-outline">
+                                        <input type="text" id="form3Example1" class="form-control" name="lastname"
+                                            value="" required />
+                                        <label class="form-label text-light" for="form3Example1">Nom:</label>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div data-mdb-input-init class="form-outline">
+                                        <input type="text" id="form3Example2" class="form-control" name="firstname"
+                                            value="" required />
+                                        <label class="form-label text-light" for="form3Example2">Prénom:</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div data-mdb-input-init class="form-outline mb-4">
+                                <input type="email" id="form3Example4" class="form-control" name="email" required />
+                                <label class="form-label text-light" for="form3Example4">Email:</label>
+                            </div>
+                            <div class="row mb-4">
+                                <div class="col">
+                                    <div data-mdb-input-init class="form-outline">
+                                        <input type="password" id="form3Example2" class="form-control" name="pwd1"
+                                            value="" required />
+                                        <label class="form-label text-light" for="form3Example2">Password:</label>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div data-mdb-input-init class="form-outline">
+                                        <input type="password" id="form3Example1" class="form-control" name="pwd2"
+                                            value="" required />
+                                        <label class="form-label text-light" for="form3Example1">Confirm
+                                            Password:</label>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <!-- Password input -->
+
+                            <!-- Submit button -->
+                            <button data-mdb-ripple-init type="submit"
+                                class="btn btn-primary btn-block mb-4">Submit</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-12 clo-md-4 mt-4"></div>
+        </div>
+
+    </section>
+</div>
+{% else %}
+<div class="container text-center">
+    <div class="mt-5">
+
+        <p class="alert alert-danger h3 fst-italic">Vous n'êtes pas autorisé à créer des compte. Veuillez-vous adresser
+            votre responsable.</p>
+
+    </div>
+</div>
+{% endif %}
+
+
+
+<!--
+
+<div class="container h5 text-light text-center" style="font-family: 'EB Garamond', serif;">
+    Bienvenus dans notre communauté; votre nom d'utilisateur et <span class="text-info">{{ user.username }}</span> a été bien ajouté
+    Clique<a href="{% url 'users:logIn' %}"> ici </a>pour te connecter à ton compte
+</div> -->
+
+
+{% endblock content %}

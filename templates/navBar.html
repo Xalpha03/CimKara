@@ -1,0 +1,115 @@
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-body-tertiary" data-mdb-theme="light" style="font-family: 'Tillana', system-ui;">
+  <!-- Container wrapper -->
+  <div class="container-fluid">
+    <!-- Toggle button -->
+    <button data-mdb-collapse-init class="navbar-toggler" type="button" data-mdb-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <i class="fas fa-bars"></i>
+    </button>
+
+    <!-- Collapsible wrapper -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <!-- Navbar brand -->
+      <a class="navbar-brand mt-2 mt-lg-0" href="{% url 'data:index_name' %}">
+        <img src="data:image/png;base64,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" height="30" alt="MDB Logo"
+          loading="lazy" />
+      </a>
+      <!-- Left links -->
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'data:index_name' %}"><i class="fa fa-home fa-2x me-1"></i>Home</a>
+        </li>
+        {% if user.is_authenticated %}
+        <li class="nav-item">
+          <a class="nav-link" href="/detail/?username={{ user.username }}"><i
+              class="fas fa-user-graduate fa-2x me-1"></i>{{ user.username }}</a>
+        </li>
+        {% endif %}
+        <li class="nav-item dropdown">
+          <a data-mdb-dropdown-init class="nav-link dropdown-toggle" href="" id="navbarDropdown" role="button"
+            aria-expanded="false"><i class="fas fa-calendar-check fa-2x me-1"></i>Action
+          </a>
+          <!-- Dropdown menu -->
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li>
+              <a class="dropdown-item" href="{% url 'data:day_name' %}">Day</a>
+            </li>
+            <li>
+              <a class="dropdown-item" href="{% url 'data:yesterday_name' %}">Yesterday</a>
+            </li>
+            <li>
+              <a class="dropdown-item" href="{% url 'data:month_name' %}">Month</a>
+            </li>
+            <li>
+              <hr class="dropdown-divider" />
+            </li>
+            <li>
+              <a class="dropdown-item" href="#">Something else here</a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+      <!-- Left links -->
+    </div>
+    <!-- Collapsible wrapper -->
+
+    <!-- Right elements -->
+    <div class="d-flex align-items-center">
+      <!-- Icon -->
+      <!-- <a class="link-secondary me-3" href="#">
+        <i class="fas fa-shopping-cart"></i>
+      </a> -->
+
+      <!-- Notifications -->
+      <!-- <div class="dropdown">
+        <a data-mdb-dropdown-init class="link-secondary me-3 dropdown-toggle hidden-arrow" href="#"
+          id="navbarDropdownMenuLink" role="button" aria-expanded="false">
+          <i class="fas fa-bell"></i>
+          <span class="badge rounded-pill badge-notification bg-danger">1</span>
+        </a>
+        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
+          <li>
+            <a class="dropdown-item" href="#">Some news</a>
+          </li>
+          <li>
+            <a class="dropdown-item" href="#">Another news</a>
+          </li>
+          <li>
+            <a class="dropdown-item" href="#">Something else here</a>
+          </li>
+        </ul>
+      </div> -->
+      <!-- Avatar -->
+      <div class="dropdown">
+        <a data-mdb-dropdown-init class="dropdown-toggle d-flex align-items-center hidden-arrow" href="#"
+          id="navbarDropdownMenuAvatar" role="button" aria-expanded="false">
+          <img src="https://mdbcdn.b-cdn.net/img/new/avatars/2.webp" class="rounded-circle" height="25"
+            alt="Black and White Portrait of a Man" loading="lazy" />
+        </a>
+        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuAvatar">
+          <!-- <!-- <li> -->
+            <a class="dropdown-item" href="#">My profile</a>
+          </li>
+          <li>
+            <a class="dropdown-item" href="#">Settings</a>
+          </li>
+          {% if user.is_authenticated %}
+            <li>
+              <a class="dropdown-item" href="{% url 'users:logOut' %}">Logout</a>
+            </li>
+          {% else %}
+          <li>
+            <a class="dropdown-item" href="{% url 'users:logIn' %}">Login</a>
+          </li>
+          {% endif %}
+            
+        </ul>
+      </div>
+    </div>
+    <!-- Right elements -->
+  </div>
+  <!-- Container wrapper -->
+</nav>
+<!-- Navbar -->
